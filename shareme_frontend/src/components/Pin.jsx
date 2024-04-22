@@ -48,8 +48,6 @@ const Pin = ({ pin }) => {
     }
   };
 
-  console.log(pin);
-
 
   return (
     <div className="m-2">
