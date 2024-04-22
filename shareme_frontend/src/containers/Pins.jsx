@@ -17,7 +17,6 @@ const Pins = ({user}) => {
 
         <Routes>
           <Route path='/' element={<Feed/>} />
-          <Route path='/spinner' element={<Spinner/>} />
           <Route path='/category/:categoryId' element={<Feed/>} />
           <Route path='/pin-detail/:pinId' element={<PinDetail user={user}/>} />
           <Route path='/create-pin' element={<CreatePin user={user}/>} />
@@ -27,7 +26,7 @@ const Pins = ({user}) => {
       </div>
       <div className='flex gap-3'>
         <Link to={`user-profile/${user?._id}`} className='hidden md:block'>
-        <img src={user?.image} alt='user' className='w-14 h-12 rounded-lg' />
+       
         </Link>
       </div>
     </div>

@@ -26,6 +26,7 @@ const Pin = ({ pin }) => {
   };
 
 
+
   const savePin = (id) => {
     if (!alreadySaved) {
       client
