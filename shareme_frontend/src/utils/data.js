@@ -64,16 +64,16 @@ export const userQuery = (userId) => {
           },
               _id,
               destination,
-              postedBy->{
+              postedby->{
                 _id,
-                userName,
+                username,
                 image
               },
               save[]{
                 _key,
                 postedBy->{
                   _id,
-                  userName,
+                  username,
                   image
                 },
               },
