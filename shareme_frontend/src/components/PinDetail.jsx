@@ -62,6 +62,10 @@ const PinDetail = ({user}) => {
     }
   };
 
+  if(!user){
+    window.location.href = '/login'
+  }
+
   if (!pinDetail) {
     return <Spinner message="Showing pin" />;
   }

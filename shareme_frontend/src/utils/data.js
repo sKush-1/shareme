@@ -127,7 +127,7 @@ export const userQuery = (userId) => {
       },
       _id,
       destination,
-      postedBy->{
+      postedby->{
         _id,
         username,
         image

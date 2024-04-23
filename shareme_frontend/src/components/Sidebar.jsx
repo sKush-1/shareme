@@ -1,7 +1,10 @@
 import React from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { RiHomeFill } from 'react-icons/ri';
+import { AiOutlineLogout } from 'react-icons/ai';
 import { FcPicture } from "react-icons/fc";
+import { MdOutlineLogin } from "react-icons/md";
+import { googleLogout } from '@react-oauth/google';
 import { IoIosArrowForward } from 'react-icons/io';
 import logo from '../assets/logo.png';
 import { categories } from '../utils/data';
@@ -9,9 +12,21 @@ import { categories } from '../utils/data';
 const isNotActiveStyle = 'flex items-center px-5 gap-3 text-gray-500 hover:text-black transition-all duration-200 ease-in-out capitalize';
 const isActiveStyle = 'flex items-center px-5 gap-3 font-extrabold border-r-2 border-black  transition-all duration-200 ease-in-out capitalize';
 
+
+
 const Sidebar = ({ closeToggle, user }) => {
+
   const handleCloseSidebar = () => {
     if (closeToggle) closeToggle(false);
+  };
+
+  const logout = () => {
+    if (closeToggle) closeToggle(false);
+
+    googleLogout();
+    localStorage.clear();
+
+    window.location.href = '/login'
   };
 
   return (
@@ -43,6 +58,26 @@ const Sidebar = ({ closeToggle, user }) => {
             <FcPicture />
             Create Pin
           </NavLink>
+          
+          {user ? 
+          <NavLink
+          to="/login"
+          className={({ isActive }) => (isActive ? isActiveStyle : isNotActiveStyle)}
+          onClick={logout}
+        >
+          <AiOutlineLogout/>
+          Logout
+        </NavLink>
+        :
+        <NavLink
+            to="/login"
+            className={({ isActive }) => (isActive ? isActiveStyle : isNotActiveStyle)}
+            onClick={handleCloseSidebar}
+          >
+            <MdOutlineLogin />
+            Login
+          </NavLink>
+          }
           <h3 className="mt-2 px-5 text-base 2xl:text-xl">Discover cateogries</h3>
           {categories.slice(0, categories.length - 1).map((category) => (
             <NavLink
