@@ -8,6 +8,7 @@ import { client } from "../client";
 import Spinner from "./Spinner";
 
 const CreatePin = ({ user }) => {
+  
   const [title, setTitle] = useState("");
   const [about, setAbout] = useState("");
   const [loading, setLoading] = useState(false);
@@ -18,8 +19,7 @@ const CreatePin = ({ user }) => {
   const [wrongImageType, setWrongImageType] = useState(false);
 
   const navigate = useNavigate();
-  // console.log(user);
-
+  
   const uploadImage = (e) => {
     const selectedFile = e.target.files[0];
     if (
@@ -81,6 +81,13 @@ const CreatePin = ({ user }) => {
       }, 2000);
     }
   };
+
+  if(!user){
+    window.location.href = '/login'
+  }
+
+ 
+
   return (
     <div className="flex flex-col justify-center items-center mt-5 lg:h-4/5">
       {fields && (
